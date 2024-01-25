@@ -1,0 +1,15 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
+
+cc_binary(
+    name = "hello-world",
+    srcs = ["hello-world.cc"],
+)
+
+
+pkg_zip(
+    name = "image",
+    srcs = [":hello-world"],
+    visibility = ["//visibility:public"],
+    testonly = True,
+)
