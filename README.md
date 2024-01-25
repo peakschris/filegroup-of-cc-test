@@ -1,6 +1,6 @@
 ### Demonstrate issue with pkg_zip and cc_test
 
-pkg_zip and cc_test do not seem to work when both targets are provided to a single Bazel invokation. It might seem odd to zip a cc_test, but we have existing downstream systems that we need to send some of our tests to for validation, and it's easiest to collect them in a zip file. This issue means that aquery on the root of the repo and other full analysis actions fail.
+pkg_zip and cc_test do not seem to work when both targets are provided to a single Bazel invokation. It might seem odd to zip a cc_test, but we have existing downstream systems that we need to send some of our tests to for validation, and it's easiest to collect them in a zip file. The zip works fine on its own, but fails with an action conflict exception when invoked together with a build of the underlying binary. This issue means that aquery on the root of the repo and other full analysis actions fail.
 
 **>bazel build //image/...**
 ```
