@@ -1,0 +1,14 @@
+cc_test(
+    name = "hello-test",
+    size = "small",
+    srcs = ["hello-test.cc"],
+    deps = ["@googletest//:gtest_main"],
+    testonly = True,
+)
+
+filegroup(
+    name = "autotest",
+    srcs = [":hello-test"],
+    visibility = ["//visibility:public"],
+    testonly = True,
+)

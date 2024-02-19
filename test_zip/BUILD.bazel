@@ -8,7 +8,14 @@ cc_test(
     testonly = True,
 )
 
-pkg_zip(
+#pkg_zip(
+#    name = "autotest",
+#    srcs = [":hello-test"],
+#    visibility = ["//visibility:public"],
+#    testonly = True,
+#)
+
+filegroup(
     name = "autotest",
     srcs = [":hello-test"],
     visibility = ["//visibility:public"],
